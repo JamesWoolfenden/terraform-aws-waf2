@@ -1,4 +1,4 @@
-#Makefile
+# Makefile
 ifdef OS
    BLAT = $(powershell  -noprofile rm .\.terraform\ -force -recurse)
    RM = $(powershell  -noprofile rm .\.terraform\ -force -recurse)
@@ -48,7 +48,7 @@ docs:
 valid:
 	-terraform fmt -recursive
 	-checkov -d . --external-checks-dir ../../checkov
-	-tfsec .
+	-tfsec . --tfvars-file examples.auto.tfvars
 	-terrascan scan
 	docker pull checkmarx/kics:latest
 	docker run -v $(CURDIR):/path checkmarx/kics:latest scan --path /path
