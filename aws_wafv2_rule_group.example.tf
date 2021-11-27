@@ -3,7 +3,7 @@ resource "aws_wafv2_rule_group" "example" {
   scope    = "REGIONAL"
   capacity = 2
 
-    rule {
+  rule {
     name     = "8klimit"
     priority = 0
 

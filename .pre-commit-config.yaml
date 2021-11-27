@@ -56,13 +56,3 @@ repos:
       - id: checkov
         verbose: true
         entry: checkov -d example/examplea --external-checks-dir checkov --download-external-modules true
-  - repo: git://github.com/tfsec/tfsec
-    rev: v0.40.2
-    hooks:
-      - id: tfsec
-        entry: tfsec
-        args:
-          - example/examplea
-        types:
-          - terraform
-        pass_filenames: false
