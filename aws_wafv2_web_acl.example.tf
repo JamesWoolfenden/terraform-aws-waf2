@@ -1,5 +1,5 @@
 resource "aws_wafv2_web_acl" "example" {
-  name = "examplea"
+  name = local.waf_name
   default_action {
     allow {
 
@@ -45,6 +45,51 @@ resource "aws_wafv2_web_acl" "example" {
       sampled_requests_enabled   = true
     }
   }
+
+  rule {
+    name     = "aws-managed-known-bad-inputs"
+    priority = 1
+    override_action {
+      none {}
+    }
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesKnownBadInputsRuleSet"
+        vendor_name = "AWS"
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "aws-managed-known-bad-inputs"
+      sampled_requests_enabled   = true
+    }
+  }
+
+  rule {
+    name     = "aws-managed-common-rule-set"
+    priority = 2
+    override_action {
+      none {}
+    }
+    statement {
+      managed_rule_group_statement {
+        name        = "AWSManagedRulesCommonRuleSet"
+        vendor_name = "AWS"
+        excluded_rule {
+          name = "SizeRestrictions_BODY"
+        }
+        excluded_rule {
+          name = "CrossSiteScripting_COOKIE"
+        }
+      }
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "aws-managed-common-rule-set"
+      sampled_requests_enabled   = true
+    }
+  }
+
 
   scope = "REGIONAL"
 }

@@ -39,7 +39,7 @@ resource "aws_wafv2_rule_group" "example" {
   }
 
   visibility_config {
-    cloudwatch_metrics_enabled = false
+    cloudwatch_metrics_enabled = true
     metric_name                = "friendly-metric-name"
     sampled_requests_enabled   = false
   }
