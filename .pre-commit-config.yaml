@@ -56,3 +56,7 @@ repos:
       - id: checkov
         verbose: true
         entry: checkov -d example/examplea --external-checks-dir checkov --download-external-modules true
+  - repo: git://github.com/gruntwork-io/pre-commit
+    rev: v0.1.17
+    hooks:
+      - id: tflint
