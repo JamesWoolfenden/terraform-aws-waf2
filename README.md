@@ -13,7 +13,15 @@ Terraform module to provision infra .
 
 ## Usage
 
-Creates a WAF with secure defaults options,
+Creates a WAF with secure defaults options, add a module file module.waf.tf to your Terraform code.
+
+```terraform
+module "waf2" {
+  source  = "JamesWoolfenden/waf2/aws"
+  version = "0.0.5"
+  kms_key_arn=aws_kms_key.waf.arn
+}
+```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
@@ -24,7 +32,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 3.62.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
 ## Modules
@@ -54,7 +62,9 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_aws_wafv2_web_acl"></a> [aws\_wafv2\_web\_acl](#output\_aws\_wafv2\_web\_acl) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects

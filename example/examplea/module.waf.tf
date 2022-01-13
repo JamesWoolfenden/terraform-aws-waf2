@@ -1,4 +1,4 @@
-module "example" {
+module "waf" {
   source      = "../../"
   kms_key_arn = aws_kms_key.waf.arn
 }
