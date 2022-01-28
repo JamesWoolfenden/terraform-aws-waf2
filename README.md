@@ -24,17 +24,16 @@ module "waf2" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 ## Requirements
 
 No requirements.
 
 ## Providers
 
-| Name                                                      | Version |
-| --------------------------------------------------------- | ------- |
-| <a name="provider_aws"></a> [aws](#provider_aws)          | n/a     |
-| <a name="provider_random"></a> [random](#provider_random) | n/a     |
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
 ## Modules
 
@@ -42,31 +41,30 @@ No modules.
 
 ## Resources
 
-| Name                                                                                                                                                               | Type        |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| [aws_iam_role.firehose_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role)                                                 | resource    |
-| [aws_kinesis_firehose_delivery_stream.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_firehose_delivery_stream)       | resource    |
-| [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket)                                                      | resource    |
-| [aws_s3_bucket_public_access_block.name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block)                | resource    |
-| [aws_wafv2_rule_group.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_rule_group)                                       | resource    |
-| [aws_wafv2_web_acl.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl)                                             | resource    |
-| [aws_wafv2_web_acl_logging_configuration.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl_logging_configuration) | resource    |
-| [random_string.Unique](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)                                                      | resource    |
-| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                                      | data source |
+| Name | Type |
+|------|------|
+| [aws_iam_role.firehose_role](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_kinesis_firehose_delivery_stream.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_firehose_delivery_stream) | resource |
+| [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_public_access_block.name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_wafv2_rule_group.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_rule_group) | resource |
+| [aws_wafv2_web_acl.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl) | resource |
+| [aws_wafv2_web_acl_logging_configuration.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_web_acl_logging_configuration) | resource |
+| [random_string.Unique](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string) | resource |
+| [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
 
 ## Inputs
 
-| Name                                                               | Description                                                                    | Type     | Default      | Required |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------ | -------- | ------------ | :------: |
-| <a name="input_kms_key_arn"></a> [kms_key_arn](#input_kms_key_arn) | The ARN of a KMS key                                                           | `string` | n/a          |   yes    |
-| <a name="input_scope"></a> [scope](#input_scope)                   | Set to REGIONAL or CLOUDFRONT- if cloudfront this must be created in us-east-1 | `string` | `"REGIONAL"` |    no    |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_kms_key_arn"></a> [kms\_key\_arn](#input\_kms\_key\_arn) | The ARN of a KMS key | `string` | n/a | yes |
+| <a name="input_scope"></a> [scope](#input\_scope) | Set to REGIONAL or CLOUDFRONT- if cloudfront this must be created in us-east-1 | `string` | `"REGIONAL"` | no |
 
 ## Outputs
 
-| Name                                                                                   | Description |
-| -------------------------------------------------------------------------------------- | ----------- |
-| <a name="output_aws_wafv2_web_acl"></a> [aws_wafv2_web_acl](#output_aws_wafv2_web_acl) | n/a         |
-
+| Name | Description |
+|------|-------------|
+| <a name="output_aws_wafv2_web_acl"></a> [aws\_wafv2\_web\_acl](#output\_aws\_wafv2\_web\_acl) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Related Projects
