@@ -26,6 +26,11 @@ resource "aws_kinesis_firehose_delivery_stream" "example" {
     role_arn   = aws_iam_role.firehose_role.arn
     bucket_arn = aws_s3_bucket.bucket.arn
   }
+  server_side_encryption {
+    enabled  = true
+    key_type = "CUSTOMER_MANAGED_CMK"
+    key_arn  = var.kms_key_arn
+  }
 }
 
 resource "random_string" "Unique" {
