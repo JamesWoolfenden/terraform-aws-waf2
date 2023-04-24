@@ -1,6 +1,6 @@
 # terraform-aws-waf2
 
-[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-waf2/workflows/Verify%20and%20Bump/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-waf2)
+[![Build Status](https://github.com/JamesWoolfenden/terraform-aws-waf2/workflows/Verify/badge.svg?branch=main)](https://github.com/JamesWoolfenden/terraform-aws-waf2)
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-waf2.svg)](https://github.com/JamesWoolfenden/terraform-aws-waf2/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-waf2.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-waf2/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
@@ -47,6 +47,7 @@ No modules.
 | [aws_kinesis_firehose_delivery_stream.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/kinesis_firehose_delivery_stream) | resource |
 | [aws_s3_bucket.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
 | [aws_s3_bucket_acl.example_bucket_acl](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_acl) | resource |
+| [aws_s3_bucket_lifecycle_configuration.bucket](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_lifecycle_configuration) | resource |
 | [aws_s3_bucket_public_access_block.name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
 | [aws_s3_bucket_server_side_encryption_configuration.name](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_wafv2_rule_group.example](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/wafv2_rule_group) | resource |
@@ -94,7 +95,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "firehose:DescribeDeliveryStream",
                 "firehose:ListTagsForDeliveryStream"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor1",
@@ -108,7 +111,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "iam:ListRolePolicies",
                 "iam:PassRole"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor2",
@@ -135,10 +140,14 @@ resource "aws_iam_policy" "terraform_pike" {
                 "s3:ListAllMyBuckets",
                 "s3:ListBucket",
                 "s3:PutBucketAcl",
+                "s3:PutBucketLogging",
                 "s3:PutBucketPublicAccessBlock",
-                "s3:PutEncryptionConfiguration"
+                "s3:PutEncryptionConfiguration",
+                "s3:PutLifecycleConfiguration"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         },
         {
             "Sid": "VisualEditor3",
@@ -153,7 +162,9 @@ resource "aws_iam_policy" "terraform_pike" {
                 "wafv2:ListTagsForResource",
                 "wafv2:UpdateRuleGroup"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
@@ -183,7 +194,7 @@ Please use the [issue tracker](https://github.com/JamesWoolfenden/terraform-aws-
 
 ## Copyrights
 
-Copyright 2021-2022 James Woolfenden
+Copyright © 2021-2023 James Woolfenden
 
 ## License
 

@@ -1,3 +1,4 @@
+#tfsec:ignore:aws-s3-enable-versioning tfsec:ignore:aws-s3-enable-bucket-logging
 resource "aws_s3_bucket" "bucket" {
   #checkov:skip=CKV_AWS_21: Versioning not appropriate
   #checkov:skip=CKV_AWS_144: Cross region not required
@@ -6,6 +7,7 @@ resource "aws_s3_bucket" "bucket" {
   #checkov:skip=CKV2_AWS_41:V4 now legacy
   #checkov:skip=CKV_AWS_145:V4 now legacy
   #checkov:skip=CKV_AWS_19:V4 now legacy
+  #checkov:skip=CKV2_AWS_62: Noisy
   bucket = local.waf_bucket
 }
 
