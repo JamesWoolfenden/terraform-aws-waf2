@@ -45,7 +45,6 @@ repos:
     rev: 2.3.198
     hooks:
       - id: checkov
-        files: .
         verbose: true
         entry: checkov -d example/examplea --external-checks-dir checkov --download-external-modules true --compact
   - repo: https://github.com/jameswoolfenden/pike
@@ -70,5 +69,5 @@ repos:
         name: TFSec
         description: TFsec is a tool to statically analyze Terraform templates to spot potential security issues.
         language: golang
-        entry: tfsec
+        entry: tfsec --include-passed
         pass_filenames: false
