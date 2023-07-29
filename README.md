@@ -157,9 +157,11 @@ resource "aws_iam_policy" "terraform_pike" {
                 "wafv2:CreateWebACL",
                 "wafv2:DeleteRuleGroup",
                 "wafv2:DeleteWebACL",
+                "wafv2:GetLoggingConfiguration",
                 "wafv2:GetRuleGroup",
                 "wafv2:GetWebACL",
                 "wafv2:ListTagsForResource",
+                "wafv2:PutLoggingConfiguration",
                 "wafv2:UpdateRuleGroup"
             ],
             "Resource": [
