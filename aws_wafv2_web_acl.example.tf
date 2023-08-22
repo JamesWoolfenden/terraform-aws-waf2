@@ -75,21 +75,29 @@ resource "aws_wafv2_web_acl" "example" {
       managed_rule_group_statement {
         name        = "AWSManagedRulesCommonRuleSet"
         vendor_name = "AWS"
-        excluded_rule {
+
+        rule_action_override {
+          action_to_use {
+            count {}
+          }
           name = "SizeRestrictions_BODY"
         }
-        excluded_rule {
+
+        rule_action_override {
+          action_to_use {
+            count {}
+          }
           name = "CrossSiteScripting_COOKIE"
         }
       }
     }
+
     visibility_config {
       cloudwatch_metrics_enabled = true
       metric_name                = "aws-managed-common-rule-set"
       sampled_requests_enabled   = true
     }
   }
-
 
   scope = "REGIONAL"
 }

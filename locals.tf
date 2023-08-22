@@ -1,4 +1,3 @@
-
 locals {
   firehose_name = "waf-stream-${random_string.Unique.id}"
   firehose_role = "firehose-waf-${random_string.Unique.id}"
