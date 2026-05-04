@@ -1,4 +1,5 @@
 resource "aws_s3_bucket" "bucket" {
+  # checkov:skip=CKV2_AWS_61: Lifecycle configuration not required for this bucket
   #checkov:skip=CKV_AWS_21: Versioning not appropriate
   #checkov:skip=CKV_AWS_144: Cross region not required
   #checkov:skip=CKV_AWS_18: No access logs
