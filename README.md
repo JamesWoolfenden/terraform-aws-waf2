@@ -93,7 +93,8 @@ resource "aws_iam_policy" "terraform_pike" {
                 "firehose:CreateDeliveryStream",
                 "firehose:DeleteDeliveryStream",
                 "firehose:DescribeDeliveryStream",
-                "firehose:ListTagsForDeliveryStream"
+                "firehose:ListTagsForDeliveryStream",
+                "firehose:UpdateDestination"
             ],
             "Resource": [
                 "*"
@@ -162,7 +163,8 @@ resource "aws_iam_policy" "terraform_pike" {
                 "wafv2:GetWebACL",
                 "wafv2:ListTagsForResource",
                 "wafv2:PutLoggingConfiguration",
-                "wafv2:UpdateRuleGroup"
+                "wafv2:UpdateRuleGroup",
+                "wafv2:UpdateWebACL"
             ],
             "Resource": [
                 "*"
